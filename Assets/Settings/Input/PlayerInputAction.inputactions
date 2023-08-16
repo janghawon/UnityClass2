@@ -1,0 +1,71 @@
+{
+    "name": "PlayerInputAction",
+    "maps": [
+        {
+            "name": "PlayerInput",
+            "id": "f657bfda-36f4-4f79-a670-2f12f359bf64",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Button",
+                    "id": "95c642cd-7281-447e-807b-dd296665d0de",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "d578c54b-ae31-48c5-aecc-6bd33acab1e1",
+                    "expectedControlType": "Button",
+                    "processors": "Invert",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e6bf8395-3d48-4fb8-91a8-2269b114015f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardAndMouse",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65942f28-19cd-4445-af16-b2e4fa7310d9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardAndMouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "KeyBoardAndMouse",
+            "bindingGroup": "KeyBoardAndMouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
