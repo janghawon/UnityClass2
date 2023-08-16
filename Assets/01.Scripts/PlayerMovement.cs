@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _gravity = -9.8f;
 
     private float _gravityMultiplier = 1f;
@@ -31,15 +31,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        _characterController = (CharacterController)GetComponent("CharacterController");
+        _characterController = GetComponent<CharacterController>();
         _playerInput = GetComponent<PlayerInput>();
-        _playerInput.onMovement += SetPlayerMovement;
+        _playerInput.OnMovement += SetPlayerMovement;
         _playerInput.OnJump += Jump;
-    }
-
-    private void SetPlayerMovement(Vector2 value)
-    {
-        _inputDirection = value;
     }
 
     private void Jump()
@@ -50,8 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void CalculatePlayerMovement()
     {
-        _movementVelocity = new Vector3(_inputDirection.x, 0, _inputDirection.y
-                                    * (_moveSpeed * Time.fixedDeltaTime));
+        _movementVelocity = new Vector3(_inputDirection.x, 0, _inputDirection.y) * (_moveSpeed * Time.fixedDeltaTime);
+
         if(_movementVelocity.sqrMagnitude > 0)
         {
             transform.rotation = Quaternion.LookRotation(_movementVelocity);
@@ -66,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovement(Vector3 value)
     {
         _movementVelocity = value;
-        _movementVelocity.y = 0; // 구현하는 게임에 따라 유동적인 수정.
+        _movementVelocity.y = 0;
         _verticalVelocity = value.y;
     }
 
@@ -96,5 +91,10 @@ public class PlayerMovement : MonoBehaviour
         }
         ApplyGravity();
         Move();
+    }
+
+    private void SetPlayerMovement(Vector2 value)
+    {
+        _inputDirection = value;
     }
 }
