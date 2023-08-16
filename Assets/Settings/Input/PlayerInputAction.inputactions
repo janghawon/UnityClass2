@@ -59,6 +59,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "6102c680-15df-42d5-8bb5-6f38c61f732a",
+            "actions": [
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "390a4751-a82e-4909-a6ad-4eccd5a2817b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2c61e06f-5004-43ba-b4cc-84795a4c62a8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardAndMouse",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
