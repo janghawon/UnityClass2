@@ -3,90 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInput : MonoBehaviour
 {
-    private PlayerInputAction _keyAction;
+    private PlayerInputAction _inputAction;
 
-    public Action<Vector2> OnMovement;
-    public Action OnJump;
-
-    private bool _uiMode = false;
+    public event Action<Vector2> OnMovement;
+    public Vector2 AimPosition { get; private set; }
+    public event Action OnJump;
+    public event Action OnFire;
 
     private void Awake()
     {
-        _keyAction = new PlayerInputAction();
-        LoadKeyInfo();
-        _keyAction.PlayerInput.Enable();
-        _keyAction.PlayerInput.Jump.performed += Jump;
+        _inputAction = new PlayerInputAction();
 
-        _keyAction.UI.Submit.performed += UISubmitPressed;
-
-        _keyAction.PlayerInput.Disable();
-        _keyAction.PlayerInput.Jump.PerformInteractiveRebinding()
-            .WithControlsExcluding("Mouse")
-            .WithCancelingThrough("<keyboard>/escape")
-            .OnComplete(op =>
-            {
-                Debug.Log(op.selectedControl);
-                op.Dispose();
-                _keyAction.PlayerInput.Enable();
-                SaveKeyInfo();
-            })
-            .OnCancel(op =>
-            {
-                Debug.Log("Cancel");
-                op.Dispose();
-                _keyAction.PlayerInput.Enable();
-            })
-            .Start();
+        _inputAction.Player.Enable();
+        _inputAction.Player.Jump.performed += JumpHandle;
+        _inputAction.Player.Fire.performed += FireHandle;
     }
 
-    private void SaveKeyInfo()
+    private void FireHandle(InputAction.CallbackContext context)
     {
-        string json = _keyAction.SaveBindingOverridesAsJson();
-        Debug.Log(json);
-
-        PlayerPrefs.SetString("keyInfo", json);
+        OnFire?.Invoke();
     }
 
-    private void LoadKeyInfo()
+    private void JumpHandle(InputAction.CallbackContext context)
     {
-        string json = PlayerPrefs.GetString("keyInfo", null);
-        if(json != null)
-        {
-            _keyAction.LoadBindingOverridesFromJson(json);
-        }
-    }
-
-    private void UISubmitPressed(CallbackContext context)
-    {
-        Debug.Log("Submit");
+        OnJump?.Invoke();
     }
 
     private void Update()
     {
-        Vector2 inputVector = _keyAction.PlayerInput.Movement.ReadValue<Vector2>();
-        OnMovement?.Invoke(inputVector);
+        AimPosition = _inputAction.Player.Aim.ReadValue<Vector2>();
 
-        if(Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            _keyAction.Disable();
-            if(!_uiMode)
-            {
-                _keyAction.UI.Enable();
-            }
-            else
-            {
-                _keyAction.PlayerInput.Enable();
-            }
-            _uiMode = !_uiMode;
-        }
-    }
+        Vector2 move = _inputAction.Player.Movement.ReadValue<Vector2>();
 
-    public void Jump(CallbackContext context)
-    {
-        OnJump?.Invoke();
+        OnMovement?.Invoke(move);
     }
 }
