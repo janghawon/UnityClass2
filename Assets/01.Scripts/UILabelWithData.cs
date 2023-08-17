@@ -23,6 +23,8 @@ public class UILabelWithData : Label
         {
             base.Init(ve, bag, cc);
             var label = ve as UILabelWithData;
+            label.KeyData = _keyName.GetValueFromBag(bag, cc);
+            label.IndexData = _index.GetValueFromBag(bag, cc);
         }
     }
 }
