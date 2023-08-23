@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/09.UI/StatusPanel.uss?fileID=7433441132597879392&amp;guid=b2b69b4fa1f002b459ab46dc3727c10b&amp;type=3#StatusPanel" />
+    <ui:VisualElement name="BackGround" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="BulletContainer">
+            <ui:VisualElement name="Bullet" class="bullet" />
+            <ui:VisualElement name="Bullet" class="bullet" />
+            <ui:VisualElement name="Bullet" class="bullet" />
+            <ui:VisualElement name="Bullet" class="bullet" />
+            <ui:VisualElement name="Bullet" class="bullet" />
+            <ui:VisualElement name="Bullet" class="bullet" />
+            <ui:VisualElement name="Bullet" class="bullet" />
+        </ui:VisualElement>
+        <ui:VisualElement name="DialogPanel">
+            <ui:Label text="Hello World" display-tooltip-when-elided="true" name="MessageLabel" />
+            <ui:VisualElement name="Corner" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
