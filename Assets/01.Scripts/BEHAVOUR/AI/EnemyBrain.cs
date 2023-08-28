@@ -18,7 +18,7 @@ public class EnemyBrain : MonoBehaviour
     protected virtual void Awake()
     {
         _navAgent = GetComponent<NavMeshAgent>();
-        _uiBar.transform.Find("Status").GetComponent<UIBar>();
+        _uiBar = transform.Find("Status").GetComponent<UIBar>();
         _camera = Camera.main;
     }
 
