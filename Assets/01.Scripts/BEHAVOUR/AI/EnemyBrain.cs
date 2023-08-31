@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBrain : MonoBehaviour
+public abstract class EnemyBrain : MonoBehaviour
 {
     [SerializeField] protected Transform _targetTrm;
 
@@ -14,6 +14,8 @@ public class EnemyBrain : MonoBehaviour
     private UIBar _uiBar;
     private Camera _camera;
     private Coroutine _coroutine;
+
+    public NodeActionCode currentCode;
 
     protected virtual void Awake()
     {
@@ -43,4 +45,6 @@ public class EnemyBrain : MonoBehaviour
         yield return new WaitForSeconds(timer);
         _uiBar.IsOn = false;
     }
+
+    public abstract void Attack();
 }

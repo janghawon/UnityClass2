@@ -14,6 +14,8 @@ public class ChaseNode : Node
         _target = target;
         _agent = agent;
         _brain = brain;
+        _nodeState = NodeState.SUCESS;
+        _code = NodeActionCode.Chasing;
     }
 
     public override NodeState Evaluate()
@@ -23,11 +25,13 @@ public class ChaseNode : Node
         {
             _agent.isStopped = false;
             _agent.SetDestination(_target.position);
-            if(_nodeState != NodeState.RUNNING)
+
+            if (_brain.currentCode != _code)
             {
                 _brain.TryToTalk("Chasing!!", 3f);
-                _nodeState = NodeState.RUNNING;
+                _brain.currentCode = _code;
             }
+            _nodeState = NodeState.RUNNING;
         }
         else
         {
