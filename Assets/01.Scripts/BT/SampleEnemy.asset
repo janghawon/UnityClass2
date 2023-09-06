@@ -1,0 +1,209 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7108668795618181878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ff18e011eb4e1ba59c08354a7ff280, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8d6482e7e07717243abc4f12c340e142
+  position: {x: 290.40005, y: 445.58612}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  children:
+  - {fileID: 4020397006248840387}
+  - {fileID: 5609342804730703426}
+  - {fileID: 4485591661154452555}
+  - {fileID: -867842679920385800}
+--- !u!114 &-867842679920385800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d91b306dc394437b47f70453c7ce0e8, type: 3}
+  m_Name: DebugNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 550946f2c6f766942a070961b0d33d3c
+  position: {x: 563.2, y: 635.19995}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  message: UnWelcome
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a310246ca011401097a098354ca424fb, type: 3}
+  m_Name: SampleEnemy
+  m_EditorClassIdentifier: 
+  treeRoot: {fileID: 430493838854587015}
+  treeState: 0
+  nodes:
+  - {fileID: 430493838854587015}
+  - {fileID: 7954912512423223379}
+  - {fileID: -7108668795618181878}
+  - {fileID: 4020397006248840387}
+  - {fileID: 5609342804730703426}
+  - {fileID: 4485591661154452555}
+  - {fileID: -867842679920385800}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+--- !u!114 &430493838854587015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aef11151aacffd4385f2592ee5d632e, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ca75f2045049e9945a149bd698b1e6a3
+  position: {x: 290.4, y: 137.2225}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  child: {fileID: 7954912512423223379}
+--- !u!114 &4020397006248840387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d51511581714b8095f11b31446a8a5c, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: cc2390c548e5ce64f81b683cb1f005bb
+  position: {x: 90.79999, y: 635}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: "1\uCD08 \uB300\uAE30"
+  duration: 1
+--- !u!114 &4485591661154452555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d51511581714b8095f11b31446a8a5c, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8fdf1444232149e428a1c768411c0054
+  position: {x: 413.2, y: 635.19995}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: "2\uCD08 \uB300\uAE30"
+  duration: 2
+--- !u!114 &5609342804730703426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d91b306dc394437b47f70453c7ce0e8, type: 3}
+  m_Name: DebugNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a10391e7ae8c42b44a80b348f0a3321e
+  position: {x: 240.79999, y: 635.19995}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  message: Hello World!
+--- !u!114 &7954912512423223379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a664222551774468e89422b7938f78, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 9274e928fb10cd343925a28f256e10dc
+  position: {x: 291.19998, y: 290.2025}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  child: {fileID: -7108668795618181878}
