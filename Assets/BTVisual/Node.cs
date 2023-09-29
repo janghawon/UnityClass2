@@ -43,6 +43,13 @@ namespace BTVisual
         {
             return Instantiate(this);
         }
+
+        public void Break()
+        {
+            OnStop();
+            state = State.SUCCESS;
+            started = false;
+        }
         
         protected abstract void OnStart();
         protected abstract void OnStop();

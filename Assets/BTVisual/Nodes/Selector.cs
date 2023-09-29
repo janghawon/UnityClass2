@@ -1,24 +1,27 @@
+using UnityEngine;
+
 namespace BTVisual
 {
     public class Selector : CompositeNode
     {
-        protected int current;
+        protected int _current;
 
         protected override void OnStart()
         {
-            current = 0;
+            _current = 0;
         }
 
         protected override void OnStop()
         {
+            
         }
 
         protected override State OnUpdate()
         {
-            for (int i = current; i < children.Count; ++i)
+            for (int i = _current; i < children.Count; ++i)
             {
-                current = i;
-                var child = children[current];
+                _current = i;
+                var child = children[_current];
 
                 switch (child.Update())
                 {

@@ -1,4 +1,6 @@
-﻿namespace BTVisual
+﻿using UnityEngine;
+
+namespace BTVisual
 {
     public class SequenceNode : CompositeNode
     {
@@ -11,7 +13,11 @@
 
         protected override void OnStop()
         {
-            
+            _current = 0;
+            foreach(var child in children)
+            {
+                child.Break();
+            }
         }
 
         protected override State OnUpdate()
