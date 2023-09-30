@@ -10,7 +10,7 @@ public class BGNoiseMove : MonoBehaviour
     [SerializeField] private float _noiseLerpSpeed;
     [SerializeField] private Vector2 _moveLimitValue;
     [SerializeField] private Vector2 _moveLerpStartValue;
-    private Transform _bgImageTrm;
+    private RectTransform _bgImageTrm;
 
     private Vector3 dir;
     private Vector3 _moveToPosition;
@@ -19,7 +19,8 @@ public class BGNoiseMove : MonoBehaviour
 
     private void Awake()
     {
-        _bgImageTrm = GameObject.Find("SkillTreeCanvas/BackGround").transform;
+        _bgImageTrm = GameObject.Find("SkillTreeCanvas/BackGround").GetComponent<RectTransform>();
+        _bgImageTrm.SetAsLastSibling();
     }
 
     private void Update()
