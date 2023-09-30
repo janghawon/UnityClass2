@@ -10,7 +10,7 @@ public abstract class NodeBase : MonoBehaviour
     private TreeNodeGroup _treeNodeGroup;
     public bool isUnlock;
     private Image _thisNodeStateVisual;
-    [SerializeField] private NodeBase[] _linkedNodes;
+    public NodeBase[] linkedNodes;
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public abstract class NodeBase : MonoBehaviour
     public void ActiveNode()
     {
         _thisNodeStateVisual.material = _treeNodeGroup.ActiveNodeMat;
-        foreach (NodeBase node in _linkedNodes)
+        foreach (NodeBase node in linkedNodes)
         {
             node.UnLockNode();
         }
