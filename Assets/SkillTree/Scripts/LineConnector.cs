@@ -8,18 +8,22 @@ public class LineConnector : MonoBehaviour
     [SerializeField] private Image _linePrefab;
 
     private TreeNodeGroup _treeNodeGroup;
+    private Transform _lineGroup;
 
     private void Start()
     {
-        _treeNodeGroup = GameObject.Find("SkillTreeCanvas/TreeNodeGroup").GetComponent<TreeNodeGroup>();
         SetLine();
     }
 
     public void SetLine()
     {
-        Vector3 dir = Vector3.zero;
+        _treeNodeGroup = GameObject.Find("SkillTreeCanvas/TreeNodeGroup").GetComponent<TreeNodeGroup>();
+        _lineGroup = _treeNodeGroup.transform.Find("LineGroup");
+
+        Vector3 dir;
         float x1, x2;
         float y1, y2;
+
         foreach(NodeBase selectNode in _treeNodeGroup.NodeList)
         {
             x1 = selectNode.transform.localPosition.x;
@@ -30,7 +34,11 @@ public class LineConnector : MonoBehaviour
                 x2 = linkNode.transform.localPosition.x;
                 y2 = linkNode.transform.localPosition.y;
 
-                RectTransform lineTrans = Instantiate(_linePrefab, _treeNodeGroup.transform).rectTransform;
+                
+                RectTransform lineTrans = Instantiate(_linePrefab, _lineGroup).rectTransform;
+                LinkLine ll = lineTrans.GetComponent<LinkLine>();
+                ll.LinkedNode = linkNode;
+                selectNode.linklines.Add(ll);
 
                 Vector2 selectNodePos = new Vector2(x1, y1);
                 Vector2 linkNodePos   = new Vector2(x2, y2);
@@ -41,8 +49,6 @@ public class LineConnector : MonoBehaviour
                 lineTrans.localRotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
                 lineTrans.localPosition = (linkNodePos + selectNodePos) / 2;
                 lineTrans.sizeDelta = new Vector2(20, Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2)));
-
-
             }
         }
     }

@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public abstract class NodeBase : MonoBehaviour
+public class NodeBase : MonoBehaviour
 {
     [SerializeField] private NodeInfoSO _nodeSO;
     private TreeNodeGroup _treeNodeGroup;
     public bool isUnlock;
     private Image _thisNodeStateVisual;
     public NodeBase[] linkedNodes;
+    public List<LinkLine> linklines = new List<LinkLine>();
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public abstract class NodeBase : MonoBehaviour
     {
         isUnlock = true;
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOShakePosition(1, 10));
+        seq.Append(transform.DOShakePosition(1, 6));
         seq.AppendCallback(() =>
         {
             _thisNodeStateVisual.sprite = _nodeSO.nodeImage;
@@ -38,11 +39,14 @@ public abstract class NodeBase : MonoBehaviour
     public void ActiveNode()
     {
         _thisNodeStateVisual.material = _treeNodeGroup.ActiveNodeMat;
-        foreach (NodeBase node in linkedNodes)
-        {
-            node.UnLockNode();
-        }
+        ApplyNodeEffect();
     }
 
-    public abstract void ApplyNodeEffect();
+    public virtual void ApplyNodeEffect()
+    {
+        foreach (LinkLine ll in linklines)
+        {
+            ll.isLinkingStart = true;
+        }
+    }
 }

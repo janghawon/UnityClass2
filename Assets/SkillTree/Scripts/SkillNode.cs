@@ -18,7 +18,8 @@ public class SkillNode : NodeBase
 
     public override void ApplyNodeEffect()
     {
-        Debug.Log(name);
+        base.ApplyNodeEffect();
+
     }
 
     private void Update()
