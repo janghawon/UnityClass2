@@ -41,6 +41,8 @@ public class LineConnector : MonoBehaviour
                 lineTrans.localRotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
                 lineTrans.localPosition = (linkNodePos + selectNodePos) / 2;
                 lineTrans.sizeDelta = new Vector2(20, Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2)));
+
+
             }
         }
     }

@@ -20,7 +20,7 @@ public class BGNoiseMove : MonoBehaviour
     private void Awake()
     {
         _bgImageTrm = GameObject.Find("SkillTreeCanvas/BackGround").GetComponent<RectTransform>();
-        _bgImageTrm.SetAsLastSibling();
+        _bgImageTrm.SetAsFirstSibling();
     }
 
     private void Update()

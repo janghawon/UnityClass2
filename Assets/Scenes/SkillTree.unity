@@ -314,7 +314,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nodeSO: {fileID: 11400000, guid: b9c57fc3da008ff42b54df5bcde3b388, type: 2}
   isUnlock: 0
-  _linkedNodes: []
+  linkedNodes: []
 --- !u!1 &673019017
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +708,52 @@ MonoBehaviour:
   ActiveNodeMat: {fileID: 2100000, guid: 440967d056493ed4d8b8911ce330c22f, type: 2}
   LockTexture: {fileID: 21300000, guid: f35ec671941619d44a8d5d18ee39a273, type: 3}
   NodeList: []
+--- !u!1 &742452652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742452654}
+  - component: {fileID: 742452653}
+  m_Layer: 0
+  m_Name: LineConnector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &742452653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742452652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d3ec0c6bca5b54ca2a94f48d5ef2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _linePrefab: {fileID: 2578114768592380086, guid: 86d66243b43c88842a29a322a20c099c,
+    type: 3}
+--- !u!4 &742452654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742452652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989029623
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nodeSO: {fileID: 11400000, guid: b9c57fc3da008ff42b54df5bcde3b388, type: 2}
   isUnlock: 1
-  _linkedNodes:
+  linkedNodes:
   - {fileID: 1555288346}
   - {fileID: 446088950}
 --- !u!1 &1555288342
@@ -1047,7 +1093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nodeSO: {fileID: 11400000, guid: b9c57fc3da008ff42b54df5bcde3b388, type: 2}
   isUnlock: 0
-  _linkedNodes: []
+  linkedNodes: []
 --- !u!1 &2014749268
 GameObject:
   m_ObjectHideFlags: 0
