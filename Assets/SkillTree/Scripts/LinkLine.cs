@@ -26,8 +26,7 @@ public class LinkLine : MonoBehaviour
                 StartCoroutine(TimerCo());
                 _isFirst = false;
             }
-            float time = Mathf.Clamp01(Time.deltaTime / _limitTime);
-            _thisLine.fillAmount = Mathf.Lerp(_thisLine.fillAmount, 1, time);
+            _thisLine.fillAmount = Mathf.Lerp(_thisLine.fillAmount, 1, Time.deltaTime / _limitTime);
         }
     }
 

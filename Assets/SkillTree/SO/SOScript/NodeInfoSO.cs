@@ -7,5 +7,6 @@ public class NodeInfoSO : ScriptableObject
 {
     public string nodeName;
     public string nodeInfo;
+    public int nodePrice;
     public Sprite nodeImage;
 }

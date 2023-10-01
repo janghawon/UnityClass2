@@ -26,7 +26,11 @@ public class SkillNode : NodeBase
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ActiveNode();
+            if(GoldManager.Instance.CheckSpendGold(_nodeSO.nodePrice))
+            {
+                GoldManager.Instance.Gold -= _nodeSO.nodePrice;
+                ActiveNode();
+            }
         }
     }
 }

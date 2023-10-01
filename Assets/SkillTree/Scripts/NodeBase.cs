@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class NodeBase : MonoBehaviour
 {
-    [SerializeField] private NodeInfoSO _nodeSO;
+    [SerializeField] protected NodeInfoSO _nodeSO;
     private TreeNodeGroup _treeNodeGroup;
     public bool isUnlock;
     private Image _thisNodeStateVisual;
